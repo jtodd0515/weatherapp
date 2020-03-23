@@ -1,0 +1,10 @@
+<h1>Check Weather</h1>
+<%= form_tag(index_path) do %>
+<%= text_field_tag :zip, nil %>
+<%=submit_tag "Check Weather"%>
+<% end %>
+<% if (@location != nil && @location != "") && (@error == "" || @error== nil)%>
+<%= render 'weather' %>
+<% elsif @status == '404'%>
+<div class="text-danger">Error<%= error%></div>
+<%end%>
