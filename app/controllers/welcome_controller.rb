@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def test
-  response = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?zip={94040},units=imperial,&appid=#{ENV["open_weather_map_key"]}")
+  response = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?zip=27834,us&units=imperial&appid=#{ENV["open_weather_map_key"]}")
   @location = response ["name"]
   @temp = response["main"]["temp"]
   @cloudiness = response["clouds"]["all"]
@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
 
   def index
     if params[:zip] != nil && params[:zip] != ""
-      response = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?zip=#{params[:zip]},units=imperial,&appid=#{ENV["open_weather_map_key"]}")
+      response = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?zip=27834,us&units=imperial&appid=#{ENV["open_weather_map_key"]}")
       @status = response["cod"]
       if @status != '404'
         @location = response["name"]
