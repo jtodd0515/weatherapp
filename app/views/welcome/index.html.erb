@@ -6,5 +6,5 @@
 <% if (@location != nil && @location != "") && (@error == "" || @error== nil)%>
 <%= render 'weather' %>
 <% elsif @status == '404'%>
-<div class="text-danger">Error<%= error%></div>
+<div class="text-danger">Error <%= @error%></div>
 <%end%>
